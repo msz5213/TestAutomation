@@ -24,12 +24,13 @@ public class RunTestCases {
 		System.out.println("List from Amazon");
 		System.out.println("********************************");
 		System.out.println(obj.getDropDownList());
-		;
+		//obj.getDropDownList();
 		System.out.println("********************************");
 		System.out.println("List from File");
 		System.out.println("********************************");
 		System.out.println(obj1.dropdownListFromFile());
-
+		//obj1.dropdownListFromFile();
+		
 		if (obj.getDropDownList().equals(obj1.dropdownListFromFile())) {
 			System.out.println("********************************");
 			System.out.println("Drop-down list from file matches with drop-down list from Amazon website.");
@@ -41,7 +42,7 @@ public class RunTestCases {
 		try {
 			Assert.assertEquals(obj.getDropDownList(), obj1.dropdownListFromFile());
 		} catch (Exception e) {
-			System.out.println("Values between dropdown and Excel file do not match");
+			System.out.println(e);
 		}
 	}
 }

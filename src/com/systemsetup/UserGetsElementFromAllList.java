@@ -19,6 +19,7 @@ public class UserGetsElementFromAllList extends BaseTest {
 	Select allDropdownList;
 	List<String> departmentsFromDropdown = new ArrayList<String>();
 
+	//public void getDropDownList() {
 	public List<String> getDropDownList() {
 
 		allDropDown = driver.findElement(By.id("searchDropdownBox"));
@@ -43,5 +44,6 @@ public class UserGetsElementFromAllList extends BaseTest {
 //		}
 
 		return departmentsFromDropdown;
+	//	System.out.println(departmentsFromDropdown.size());;
 	}
 }

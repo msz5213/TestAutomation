@@ -10,7 +10,7 @@ public class AllDropDownInputFromlFile {
 
 	List<String> departmentsFromFile;
 	
-
+	//public void dropdownListFromFile() throws IOException {
 	public List<String> dropdownListFromFile() throws IOException {
 
 		String projectPath = System.getProperty("user.dir");
@@ -31,6 +31,7 @@ public class AllDropDownInputFromlFile {
 			System.out.println(list);
 		}*/
 		return departmentsFromFile;
+		//System.out.println(departmentsFromFile.size());
 	}
 
 }
