@@ -7,21 +7,18 @@ import org.testng.annotations.Test;
 
 public class UserIsAbleToValidateSearchInputField extends BaseTest {
 
-	WebElement searchBox;
+	@Test(enabled = true, priority = 100)
+	public void userIsAbleToVerifySearchInputField() throws InterruptedException {
 
-/*	public UserIsAbleToValidateSearchInputField(WebDriver driver) {
-		super(driver);
-		// TODO Auto-generated constructor stub
-	}*/
-
-	@Test
-	public void userIsAbleToVerifySearchInputField() {
-		searchBox = driver.findElement(By.id("twotabsearchtextbox"));
+		WebElement searchBox = driver.findElement(By.cssSelector("#twotabsearchtextbox"));
 
 		if (searchBox.isEnabled() && searchBox.isEnabled()) {
 			searchBox.sendKeys("brakes");
 			searchBox.submit();
 			System.out.println("User is able to click on search box, type and search for items");
+		} else {
+			System.out.println("Searchinng for items has failed.");
 		}
 	}
+
 }

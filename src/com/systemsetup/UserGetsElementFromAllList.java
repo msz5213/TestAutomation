@@ -17,6 +17,7 @@ public class UserGetsElementFromAllList extends BaseTest {
 
 	WebElement allDropDown;
 	Select allDropdownList;
+	
 	List<String> departmentsFromDropdown = new ArrayList<String>();
 
 	//public void getDropDownList() {

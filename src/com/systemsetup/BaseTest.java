@@ -1,27 +1,23 @@
 package com.systemsetup;
 
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
-
+import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
-	
-	WebElement element;
-	WebDriver driver;
+
+	public WebDriver driver;
 
 	String expectedURL = "https://www.amazon.com/";
 
-	/*public BaseTest(WebDriver driver) {
-		this.driver = driver;
-	}*/
+	/*
+	 * public BaseTest(WebDriver driver) { this.driver = driver; }
+	 */
 
 	// What is the default timeout in selenium - 30 sec
 
@@ -37,7 +33,7 @@ public class BaseTest {
 	// - JUnit has no reporting, TestNG has reporting
 	// What is the synchronization
 	// Implicit wait, explicit wait, thread.sleep, fluent wait
-    
+
 	@BeforeClass
 	public void getSetup() {
 		/** Making OS dynamic between Mac and Windows */
@@ -72,8 +68,8 @@ public class BaseTest {
 		}
 		driver = new ChromeDriver();
 	}
-	
-	@BeforeTest
+
+	@BeforeMethod
 	public void workingURL() {
 		driver.navigate().to(expectedURL);
 		String actualSite = driver.getCurrentUrl();
@@ -84,18 +80,18 @@ public class BaseTest {
 		} catch (Exception e) {
 			System.out.println("Actual url do not match expected url");
 		}
-	}
-
-	@AfterMethod
-	public void segregateTestCases() {
-		System.out.println("Test case has run");
+		driver.manage().window().maximize();
 	}
 
 	@AfterTest
+	public void segregateTestCases() {
+		System.out.println("Testing is complete");
+	}
+
+	@AfterClass
 	public void closeBrowser() {
 		driver.close();
 		driver.quit();
 	}
 
 }
-
